@@ -1,2 +1,0 @@
-const e=document.querySelector("form"),t=document.querySelector("button");let o={};const n=localStorage;if(e.addEventListener("input",(function(e){o[e.target.name]=e.target.value,console.log(o),n.setItem("formData",JSON.stringify(o))})),n.getItem("formData")){o=JSON.parse(n.getItem("formData")),console.log(o);for(let t in o)e.elements[t].value=o[t]}t.addEventListener("click",(function(){localStorage.clear()}));
-//# sourceMappingURL=03-feedback.b00aa79d.js.map
