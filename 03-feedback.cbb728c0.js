@@ -1,0 +1,2 @@
+!function(){var e=document.querySelector("form"),t=document.querySelector("button"),o={},a=localStorage;if(e.addEventListener("input",(function(e){o[e.target.name]=e.target.value,console.log(o),a.setItem("formData",JSON.stringify(o))})),a.getItem("formData"))for(var n in o=JSON.parse(a.getItem("formData")),console.log(o),o)e.elements[n].value=o[n];t.addEventListener("click",(function(){localStorage.clear()}))}();
+//# sourceMappingURL=03-feedback.cbb728c0.js.map
