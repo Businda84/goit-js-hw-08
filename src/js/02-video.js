@@ -24,7 +24,7 @@ player.on('timeupdate', function (time) {
       localStorage.setItem("videoplayer-current-time", time.seconds);
 });
 
-player.setCurrentTime(30.456).then(function(seconds) {
+player.setCurrentTime(isCurrentTime).then(function(seconds) {
    
 })
 

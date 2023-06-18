@@ -18,7 +18,10 @@ for(let key in formData)
 {form.elements[key].value=formData[key]}
      
 }
+
 submitBtm.addEventListener('click', formClear);
 function formClear() {
-    localStorage.clear()
+    if (formData) {
+        localStorage.clear()
+    }
 }
