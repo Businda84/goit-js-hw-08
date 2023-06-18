@@ -1,23 +1,30 @@
 import Player from '@vimeo/player';
 
-//  id="vimeo-player"
-//       src="https://player.vimeo.com/video/236203659"
-//       width="640"
-//       height="360"
-//       frameborder="0"
-//       allowfullscreen
-//       allow="autoplay; encrypted-media"
 
+const iframe = document.querySelector('#vimeo-player');
+    console.log(iframe);
 
+    iframe.addEventListener("timeupdate", (e) => {
+        console.log(e);
+    })
 
-    const player = new Player(iframe);
-    const iframe = document.querySelector('#vimeo-player');
-    const onPlay = function(data) {
+const player = new Player(iframe);
+    let isCurrentTime = localStorage.getItem("videoplayer-current-time");
+console.log(isCurrentTime);
+if (isCurrentTime) {
+    player.setCurrentTime(isCurrentTime)
+}
+    player.on('play', function() {
+        console.log('played the video!');
+    });
+
+player.on('timeupdate', function (time) {
+ 
+
+      localStorage.setItem("videoplayer-current-time", time.seconds);
+});
+
+player.setCurrentTime(30.456).then(function(seconds) {
    
-    duration: 61.857
-    percent: 0.049
-    seconds: 3.034
+})
 
-};
-
-player.on('play', onPlay);
