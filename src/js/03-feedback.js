@@ -21,7 +21,9 @@ for(let key in formData)
 
 submitBtm.addEventListener('click', formClear);
 function formClear() {
-    if (formData) {
-        localStorage.clear()
+    console.log(formData);
+    if (this.name, this.value) {
+        localStorage.clear()  
     }
+    
 }
