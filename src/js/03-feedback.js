@@ -4,26 +4,33 @@ let formData = {};
 const LS = localStorage;
 
 form.addEventListener('input', function (e) {
-
+   
     formData[e.target.name] = e.target.value;
-    console.log(formData);
+ 
     LS.setItem('formData', JSON.stringify(formData));
 });
+
+
 if (LS.getItem('formData')) {
+    
     formData = JSON.parse(LS.getItem('formData'));
-    console.log(formData);
-    // console.log( form.elements[name]);
+
 
 for(let key in formData)
 {form.elements[key].value=formData[key]}
      
 }
-
 submitBtm.addEventListener('click', formClear);
-function formClear() {
-    console.log(formData);
-    if (this.name, this.value) {
-        localStorage.clear()  
-    }
+
+
+function formClear(evt) {
+     evt.preventDefault();
+    console.log( form.elements.message);
+    if (form.elements.email.value === '' || form.elements.message.value === '') {
+        alert('Please,enter text!')
+    };
+    evt.currentTarget.reset();
+        
+      localStorage.clear()  
     
 }
