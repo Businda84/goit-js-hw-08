@@ -18,11 +18,17 @@ if (isCurrentTime) {
         console.log('played the video!');
     });
 
-player.on('timeupdate', function (time) {
+    document.addEventListener(
+  "scroll",
+  _.throttle(() => {
+    player.on('timeupdate', function (time) {
  
 
       localStorage.setItem("videoplayer-current-time", time.seconds);
 });
+  }, 500)
+);
+
 
 player.setCurrentTime(isCurrentTime).then(function(seconds) {
    
