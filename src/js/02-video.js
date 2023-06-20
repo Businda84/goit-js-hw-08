@@ -19,7 +19,7 @@ if (isCurrentTime) {
     });
 
     document.addEventListener(
-  "scroll",
+  "video",
   _.throttle(() => {
     player.on('timeupdate', function (time) {
  
