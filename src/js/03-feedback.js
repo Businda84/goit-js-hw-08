@@ -1,4 +1,4 @@
-const { values } = require("@vimeo/player");
+
 
 const form = document.querySelector('form');
 const submitBtm = document.querySelector('button');
@@ -19,7 +19,9 @@ if (LS.getItem('formData')) {
 
 
 for(let key in formData)
-{form.elements[key].value=formData[key]}
+{
+    form.elements[key].value = formData[key]
+}
      
 }
 form.addEventListener('submit', onFormSubmit);
@@ -32,11 +34,11 @@ function onFormSubmit(evt) {
     console.log(form.elements.message.value);
     if (form.elements.email.value === '' || form.elements.message.value === '') {
         alert('Please,enter text!')
+
     };
     if (form.elements.email.value || form.elements.message.value) {
         evt.currentTarget.reset();
-
-        localStorage.clear()  
+       localStorage.clear()  
     
     }
 
