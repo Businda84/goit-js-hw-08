@@ -27,17 +27,6 @@ const onCreateMarkup = galleryItems.map(({ preview, original, description })=>
 galleryEl.insertAdjacentHTML('beforeend', onCreateMarkup.join(''))
 
 
-galleryEl.addEventListener('click', OnClickGalleryImg);
-
-function OnClickGalleryImg(evt) {
-  console.log(evt.target);
-  evt.preventDefault();
-  const isImgEl = !evt.target.classList.contains('gallery__image');
-  if (isImgEl) {
-    
-    return
-  }
-}
 let galleryModal = new SimpleLightbox('.gallery a', {
   doubleTapZoom: '1.5',
   captionsData: 'alt',
