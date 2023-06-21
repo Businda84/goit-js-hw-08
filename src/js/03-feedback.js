@@ -10,7 +10,7 @@ console.log(inputEl);
 formEl.addEventListener('submit', onFormSubmit);
 formEl.addEventListener('input', throttle(onFormInput, 500));
 
-let formData = { };
+let formData = {};
 
 onSaveStorage();
 
@@ -31,11 +31,14 @@ function onFormSubmit(e) {
     }
  
 
+
     const dataText = localStorage.getItem(keyStorage);
     console.log(dataText);
     const dataControle = JSON.parse(dataText);
     e.currentTarget.reset();
     localStorage.removeItem(keyStorage);
+    localStorage.clear();
+   
 }
 
 function onSaveStorage() {
