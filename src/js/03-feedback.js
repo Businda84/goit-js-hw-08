@@ -10,7 +10,7 @@ console.log(inputEl);
 formEl.addEventListener('submit', onFormSubmit);
 formEl.addEventListener('input', throttle(onFormInput, 500));
 
-let formData = {};
+let formData =JSON.parse(localStorage.getItem(keyStorage))||{};
 
 onSaveStorage();
 
@@ -37,7 +37,8 @@ function onFormSubmit(e) {
     const dataControle = JSON.parse(dataText);
     e.currentTarget.reset();
     localStorage.removeItem(keyStorage);
-    localStorage.clear();
+    formData = {};
+    form.reset();
    
 }
 
@@ -45,7 +46,7 @@ function onSaveStorage() {
     const savedMessage = localStorage.getItem(keyStorage);
     let formData = JSON.parse(savedMessage);
     if (savedMessage) {
-        formEl.elements.email.value = formData.email;
-        formEl.elements.message.value = formData.message;
+        formEl.elements.email.value = formData.email || '';
+        formEl.elements.message.value = formData.message || '';
     }
 }
